@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="zh-TW">
+  <!--  -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo</title>
+    <!--  -->
+    <link rel="icon" href="./media/favicon.ico" type="image/x-icon" />
+    <!--  -->
+    <link rel="stylesheet" href="./plugins/bootstrap.min.css" />
+    <script defer src="./plugins/bootstrap.bundle.min.js"></script>
+    <!--  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <!--  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    />
+    <!--  -->
+    <link rel="stylesheet" href="./plugins/style.css" />
+  </head>
+  <!--  -->
+  <body data-bs-spy="scroll" data-bs-target="#Menu">
+    <!-- 導覽列 -->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-10"
+      data-bs-theme="dark"
+    >
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <span class="fa-stack">
+            <i class="fa-solid fa-circle fa-stack-2x text-light"></i>
+            <i class="fa-solid fa-star fa-stack-1x text-dark"></i>
+          </span>
+          <span>gamenews</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#Menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="Menu" class="collapse navbar-collapse">
+          <div class="navbar-nav ms-auto gap-0 gap-lg-3 ps-5 ps-lg-0">
+            <!-- 在https://getbootstrap.com/docs/5.3/components/navbar/#nav有另一個寫法a不用li-->
+            <a class="nav-link" href="#top">Top</a>
+            <a class="nav-link" href="#ettoday">EtToday</a>
+            <a class="nav-link" href="#gameapps">Gameapps</a>
+            <a class="nav-link" href="#setn">Setn</a>
+            <div class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                data-bs-toggle="dropdown"
+                >Contact</a
+              >
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#email">Email</a></li>
+                <li><a class="dropdown-item" href="#phone">Phone</a></li>
+                <li><a class="dropdown-item" href="#ai">AI</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- 首屏輪播 -->
+    <section
+      id="top"
+      class="carousel slide carousel-fade"
+      data-bs-ride="carousel"
+      data-bs-interval="3000"
+    >
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#top"
+          data-bs-slide-to="0"
+          class="active"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#top"
+          data-bs-slide-to="1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#top"
+          data-bs-slide-to="2"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item vh-100 active">
+          <img
+            src="./media/game-photo1.jpg"
+            class="d-block w-100 h-100 object-fit-cover"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h3>First slide</h3>
+          </div>
+        </div>
+        <div class="carousel-item vh-100">
+          <img
+            src="./media/game-photo2.jpg"
+            class="d-block w-100 h-100 object-fit-cover"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Second slide</h3>
+          </div>
+        </div>
+        <div class="carousel-item vh-100">
+          <img
+            src="./media/game-photo3.jpg"
+            class="d-block w-100 h-100 object-fit-cover"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Third slide</h3>
+          </div>
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev w-auto"
+        type="button"
+        data-bs-target="#top"
+        data-bs-slide="prev"
+      >
+        <i class="fa-solid fa-caret-left fa-3x"></i>
+      </button>
+      <button
+        class="carousel-control-next w-auto"
+        type="button"
+        data-bs-target="#top"
+        data-bs-slide="next"
+      >
+        <i class="fa-solid fa-caret-right fa-3x"></i>
+      </button>
+    </section>
+    <!-- 各資料區（同頁不同段落） -->
+    <section id="ettoday" class="news-section">
+      <h2 class="mb-3">EtToday</h2>
+      <div id="ettodayList" class="row g-3"></div>
+    </section>
+    <!--  -->
+    <section id="gameapps" class="news-section">
+      <h2 class="mb-3">Gameapps</h2>
+      <div id="gameappList" class="row g-3"></div>
+    </section>
+    <!--  -->
+    <section id="setn" class="news-section">
+      <h2 class="mb-3">Setn</h2>
+      <div id="setnList" class="row g-3"></div>
+    </section>
+    <!--  -->
+    <section id="contact" class="container">
+      <h2>Contact</h2>
+      <p>contact-All</p>
+    </section>
+    <!--  -->
+    <section id="email" class="container">
+      <h2>Email</h2>
+      <p>email</p>
+    </section>
+    <!--  -->
+    <section id="phone" class="container">
+      <h2>Phone</h2>
+      <p>09xx-xxx-xxx</p>
+    </section>
+    <section id="ai" class="container">
+      <h2>AI-assistant</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, quis
+        eveniet obcaecati harum dolore magni aspernatur, quasi vel nulla
+        expedita quidem nihil doloribus unde provident perferendis optio
+        facilis. Nihil, quam!
+      </p>
+    </section>
+    <!--  -->
+    <footer class="site-footer text-center">
+      <small>
+        <p>
+          本網站僅供學習與作品展示用途，所有圖文版權歸原始來源所有（GameApps、SETN、EtToday...）。
+        </p>
+        <p>如有侵權請來信告知，將立即處理。</p>
+        <p>
+          This site is for demo purposes only. All rights of images and texts
+          belong to their respective owners.
+        </p>
+      </small>
+    </footer>
+    <!--  -->
+    <script>
+      //////////////////////////////
+      // 工具：摘要文字
+      //////////////////////////////
+      const brief = (txt, n = 80) =>
+        (txt || "").replace(/\s+/g, " ").slice(0, n) +
+        (txt && txt.length > n ? "…" : "");
+      //////////////////////////////
+      // 渲染新聞卡片
+      //////////////////////////////
+      function renderNews(jsonPath, containerId, sourceName) {
+        fetch(jsonPath)
+          .then((r) => r.json())
+          .then((data) => {
+            const wrap = document.getElementById(containerId);
+            if (!wrap) return;
+            data.slice(0, 10).forEach((n) => {
+              const col = document.createElement("div");
+              col.className = "col-12 col-sm-6 col-md-4 col-lg-3 col-xl-5col";
+              col.innerHTML = `
+        <a class="text-decoration-none text-light open-reader"
+           href="${n.link}"
+           data-title="${(n.title || "").replace(/"/g, "&quot;")}"
+           data-image="${n.image || ""}"
+           data-desc="${brief(n.title, 120).replace(/"/g, "&quot;")}"
+           data-date="2025xxxx"
+           data-source="${sourceName}">
+          <div class="card h-100">
+            <img class="card-img-top"
+                 src="${n.image || ""}"
+                 alt="">
+            <div class="card-body">
+              <div class="card-title small">
+                ${n.title || ""}
+              </div>
+            </div>
+          </div>
+        </a>
+        `;
+              wrap.appendChild(col);
+            });
+          });
+      }
+      //////////////////////////////
+      // 新聞來源設定
+      //////////////////////////////
+      const newsSources = [
+        {
+          json: "./ettoday/ettoday_data.json",
+          container: "ettodayList",
+          source: "ETtoday",
+        },
+        {
+          json: "./setn/setn_data.json",
+          container: "setnList",
+          source: "SETN",
+        },
+        {
+          json: "./gameapps/gameapps_data.json",
+          container: "gameappList",
+          source: "GameApps",
+        },
+      ];
+      //////////////////////////////
+      // 載入所有新聞
+      //////////////////////////////
+      newsSources.forEach((src) => {
+        renderNews(src.json, src.container, src.source);
+      });
+      //////////////////////////////
+      // Modal 開啟新聞
+      //////////////////////////////
+      document.addEventListener("click", function (e) {
+        const a = e.target.closest(".open-reader");
+        if (!a) return;
+        e.preventDefault();
+        const title = a.dataset.title || "—";
+        const date = a.dataset.date || "—";
+        const image = a.dataset.image || "";
+        const desc = a.dataset.desc || "（此來源未提供摘要）";
+        const link = a.getAttribute("href") || "#";
+        const source = a.dataset.source || new URL(link).hostname;
+        //////////////////////////////
+        // 填資料
+        //////////////////////////////
+        document.getElementById("readerTitle").textContent = title;
+        document.getElementById("readerDate").textContent = date;
+        const imgEl = document.getElementById("readerImage");
+        if (image) {
+          imgEl.src = image;
+          imgEl.style.display = "block";
+        } else {
+          imgEl.removeAttribute("src");
+          imgEl.style.display = "none";
+        }
+        const sumEl = document.getElementById("readerSummary");
+        sumEl.innerHTML =
+          "<p>" + desc.replace(/</g, "&lt;").replace(/>/g, "&gt;") + "</p>";
+        document.getElementById("readerFullBtn").href = link;
+        document.getElementById("readerSource").innerHTML =
+          '來源：<a href="' +
+          link +
+          '" target="_blank" rel="noopener">' +
+          (source || "原文") +
+          "</a>（僅作作品展示）";
+        //////////////////////////////
+        // 開 Modal
+        //////////////////////////////
+        const modal = new bootstrap.Modal(
+          document.getElementById("readerModal"),
+        );
+        modal.show();
+      });
+    </script>
+    <!--  -->
+    <!-- 文章閱讀區塊：Bootstrap Modal（放在/body前） -->
+    <div class="modal fade" id="readerModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div class="modal-content bg-dark text-light">
+          <div class="modal-header border-0">
+            <h5 class="modal-title" id="readerTitle">（文章標題）</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="關閉"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="d-flex gap-3 align-items-start flex-column flex-md-row">
+              <!-- 封面圖（沒有就隱藏） -->
+              <img
+                id="readerImage"
+                src="#"
+                alt=""
+                class="rounded"
+                style="
+                  max-width: 320px;
+                  width: 100%;
+                  height: auto;
+                  object-fit: cover;
+                  display: none;
+                "
+              />
+              <div class="flex-grow-1">
+                <div class="text-secondary small mb-2" id="readerDate">
+                  （時間）
+                </div>
+                <div id="readerSummary" class="lh-lg reader-summary">
+                  （摘要文字 / 前幾段內容）
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--  -->
+          <div class="modal-footer justify-content-between border-0">
+            <div class="small text-secondary" id="readerSource">
+              來源：<span>（來源網站）</span>
+            </div>
+            <div class="d-flex gap-2">
+              <a
+                id="readerFullBtn"
+                href="#"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-outline-info"
+              >
+                閱讀全文（前往原站）
+              </a>
+              <button
+                type="button"
+                class="btn btn-outline-light"
+                data-bs-dismiss="modal"
+              >
+                關閉
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+  </body>
+  <!--  -->
+</html>
+<!-- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->
